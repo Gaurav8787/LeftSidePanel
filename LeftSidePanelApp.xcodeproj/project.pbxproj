@@ -14,6 +14,10 @@
 		F44594431F6BB5D9000ADCC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44594411F6BB5D9000ADCC5 /* LaunchScreen.storyboard */; };
 		F445944E1F6BB5D9000ADCC5 /* LeftSidePanelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F445944D1F6BB5D9000ADCC5 /* LeftSidePanelAppTests.swift */; };
 		F44594591F6BB5D9000ADCC5 /* LeftSidePanelAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44594581F6BB5D9000ADCC5 /* LeftSidePanelAppUITests.swift */; };
+		F445954D1F6BE12C000ADCC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F445954C1F6BE12C000ADCC5 /* UIKit.framework */; };
+		F44595561F6BEFDE000ADCC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44595541F6BEFDE000ADCC5 /* BaseViewController.swift */; };
+		F44595571F6BEFDE000ADCC5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44595551F6BEFDE000ADCC5 /* MenuViewController.swift */; };
+		F445955B1F6BF28B000ADCC5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F445955A1F6BF28B000ADCC5 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		F44594541F6BB5D9000ADCC5 /* LeftSidePanelAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeftSidePanelAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44594581F6BB5D9000ADCC5 /* LeftSidePanelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSidePanelAppUITests.swift; sourceTree = "<group>"; };
 		F445945A1F6BB5D9000ADCC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F445954C1F6BE12C000ADCC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F44595541F6BEFDE000ADCC5 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F44595551F6BEFDE000ADCC5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F445955A1F6BF28B000ADCC5 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F445954D1F6BE12C000ADCC5 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,7 @@
 				F445944C1F6BB5D9000ADCC5 /* LeftSidePanelAppTests */,
 				F44594571F6BB5D9000ADCC5 /* LeftSidePanelAppUITests */,
 				F44594361F6BB5D9000ADCC5 /* Products */,
+				F445954B1F6BE12C000ADCC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +107,15 @@
 		F44594371F6BB5D9000ADCC5 /* LeftSidePanelApp */ = {
 			isa = PBXGroup;
 			children = (
+				F44595541F6BEFDE000ADCC5 /* BaseViewController.swift */,
+				F44595551F6BEFDE000ADCC5 /* MenuViewController.swift */,
 				F44594381F6BB5D9000ADCC5 /* AppDelegate.swift */,
 				F445943A1F6BB5D9000ADCC5 /* ViewController.swift */,
 				F445943C1F6BB5D9000ADCC5 /* Main.storyboard */,
 				F445943F1F6BB5D9000ADCC5 /* Assets.xcassets */,
 				F44594411F6BB5D9000ADCC5 /* LaunchScreen.storyboard */,
 				F44594441F6BB5D9000ADCC5 /* Info.plist */,
+				F445955A1F6BF28B000ADCC5 /* SecondViewController.swift */,
 			);
 			path = LeftSidePanelApp;
 			sourceTree = "<group>";
@@ -123,6 +136,14 @@
 				F445945A1F6BB5D9000ADCC5 /* Info.plist */,
 			);
 			path = LeftSidePanelAppUITests;
+			sourceTree = "<group>";
+		};
+		F445954B1F6BE12C000ADCC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F445954C1F6BE12C000ADCC5 /* UIKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F445955B1F6BF28B000ADCC5 /* SecondViewController.swift in Sources */,
 				F445943B1F6BB5D9000ADCC5 /* ViewController.swift in Sources */,
 				F44594391F6BB5D9000ADCC5 /* AppDelegate.swift in Sources */,
+				F44595561F6BEFDE000ADCC5 /* BaseViewController.swift in Sources */,
+				F44595571F6BEFDE000ADCC5 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +444,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.LeftSidePanelApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -433,6 +458,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = test.LeftSidePanelApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
