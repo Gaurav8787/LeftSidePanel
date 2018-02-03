@@ -10,9 +10,21 @@ import UIKit
 
 class BaseViewController: UIViewController, SlideMenuDelegate {
     
+    var btnShowMenu:UIButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(onSlideMenuGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(onSlideMenuGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,7 +66,7 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
     }
     
     func addSlideMenuButton(){
-        let btnShowMenu = UIButton(type: UIButtonType.system)
+        btnShowMenu = UIButton(type: UIButtonType.system)
         btnShowMenu.setImage(self.defaultMenuImage(), for: UIControlState())
         btnShowMenu.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         btnShowMenu.addTarget(self, action: #selector(BaseViewController.onSlideMenuButtonPressed(_:)), for: UIControlEvents.touchUpInside)
@@ -83,6 +95,54 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
        
         return defaultMenuImage;
     }
+    
+    
+
+    
+    func onSlideMenuGesture() {
+        
+        if (btnShowMenu.tag == 10)
+        {
+            // To Hide Menu If it already there
+            self.slideMenuItemSelectedAtIndex(-1);
+            
+            btnShowMenu.tag = 0;
+            
+            let viewMenuBack : UIView = view.subviews.last!
+            
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                var frameMenu : CGRect = viewMenuBack.frame
+                frameMenu.origin.x = -1 * UIScreen.main.bounds.size.width
+                viewMenuBack.frame = frameMenu
+                viewMenuBack.layoutIfNeeded()
+                viewMenuBack.backgroundColor = UIColor.clear
+            }, completion: { (finished) -> Void in
+                viewMenuBack.removeFromSuperview()
+            })
+            
+            return
+        }
+        
+        btnShowMenu.isEnabled = false
+        btnShowMenu.tag = 10
+        
+        let menuVC : MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        menuVC.btnMenu = btnShowMenu
+        menuVC.delegate = self
+        self.view.addSubview(menuVC.view)
+        self.addChildViewController(menuVC)
+        menuVC.view.layoutIfNeeded()
+        
+        
+        menuVC.view.frame=CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+            self.btnShowMenu.isEnabled = true
+        }, completion:nil)
+        
+    }
+    
     
     @objc func onSlideMenuButtonPressed(_ sender : UIButton){
         if (sender.tag == 10)
